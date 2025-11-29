@@ -1,0 +1,54 @@
+[project]
+name = "pp-backend"
+version = "0.1.0"
+description = "Backend for Polly Pictures project"
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [
+    {name = "Daniil Fedotov", email = "fedotovdanil570@gmail.com"}
+]
+dependencies = [
+    "alembic>=1.17.2",
+    "asyncpg>=0.31.0",
+    "fastapi[standard]>=0.122.0",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "python-multipart>=0.0.20",
+    "sqlalchemy>=2.0.44",
+]
+
+[project.scripts]
+pp-backend = "pp_backend:main"
+
+[build-system]
+requires = ["uv_build>=0.9.13,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.0",
+    "ruff>=0.14.7",
+]
+
+## Ruff configuration
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src", "tests"]
+
+# Ruff linter
+[tool.ruff.lint]
+# Basic useful rule sets: pycodestyle/pyflakes/imports/bugs/modernizations
+select = ["E", "F", "I", "B", "UP", "RUF"]
+# Ignore some classic noisy ones; tweak to taste
+ignore = [
+    "E203",  # whitespace around ':'
+    "E266",  # too many leading '#' for block comment
+]
+
+# Ruff formatter
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
