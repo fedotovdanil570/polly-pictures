@@ -1,0 +1,13 @@
+# Environments
+ENV/*
+!ENV/.env.example
+
+# Other files
+.vscode/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.code-workspace
+
+# virtual environments
+.venv/

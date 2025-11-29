@@ -1,0 +1,17 @@
+repos:
+  # --- Basic hygiene hooks ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0  # check GitHub for the latest tag
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: check-added-large-files
+
+  # --- Ruff (linter, optionally formatter) ---
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.7  # check GitHub for latest
+    hooks:
+      # Lint only (fast)
+      - id: ruff
+        args: ["--fix"]  # auto-fix what it can
